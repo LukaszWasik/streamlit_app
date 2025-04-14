@@ -1,29 +1,51 @@
-# app.py
-
 import streamlit as st
-from logger import setup_logger
-from utils import load_csv
-import os
-from plot_selector import plot_selector  # Importowanie funkcji do wyboru i generowania wykresów
+from components.file_loader import file_uploader
+from components.data_preview import data_preview
 
-# Inicjalizacja logowania
-log_file = setup_logger()
+# Ustawienia strony
+st.set_page_config(page_title="Analiza Danych", layout="wide")
 
-# Wczytanie pliku CSV
-uploaded_file = st.file_uploader("Wczytaj plik CSV", type=["csv"])
+# Menu główne
+menu_options = [
+    "📁 Załaduj Plik",
+    "📊 Generowanie Wykresów",
+    "📋 Generowanie Raportu",
+    "🤖 Nauka Maszynowa",
+    "🖥️ Pisanie Kodów"
+]
+choice = st.sidebar.radio("Menu", menu_options)
 
-if uploaded_file is not None:
-    # Wczytanie danych do dataframe
-    df = load_csv(uploaded_file)
-    
-    if df is not None:
-        st.success("Plik poprawnie wczytany!")
+# Globalne dane
+if "uploaded_files" not in st.session_state:
+    st.session_state.uploaded_files = {}
 
-        # Podgląd danych
-        st.subheader("Podgląd danych")
-        st.dataframe(df.head())
+# Obsługa poszczególnych zakładek
+if choice == "📁 Załaduj Plik":
+    # Sekcja ładowania plików i podglądu danych
+    file_uploader()
+    data_preview()
 
-        # Wywołanie funkcji do wyboru wykresu i generowania wykresu
-        plot_selector(df)
-else:
-    st.info("Wczytaj plik CSV, aby rozpocząć analizę.")
+elif choice == "📊 Generowanie Wykresów":
+    if st.session_state.uploaded_files:
+        from pages.plot_page import render_plot_page
+        render_plot_page()
+    else:
+        st.warning("Najpierw załaduj przynajmniej jeden plik CSV.")
+
+elif choice == "📋 Generowanie Raportu":
+    if st.session_state.uploaded_files:
+        from pages.report_page import render_report_page
+        render_report_page()
+    else:
+        st.warning("Najpierw załaduj przynajmniej jeden plik CSV.")
+
+elif choice == "🤖 Nauka Maszynowa":
+    if st.session_state.uploaded_files:
+        from pages.ml_page import render_ml_page
+        render_ml_page()
+    else:
+        st.warning("Najpierw załaduj przynajmniej jeden plik CSV.")
+
+elif choice == "🖥️ Pisanie Kodów":
+    from pages.code_page import render_code_editor_page
+    render_code_editor_page()
