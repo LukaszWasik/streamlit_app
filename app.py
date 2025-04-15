@@ -27,25 +27,25 @@ if choice == "📁 Załaduj Plik":
 
 elif choice == "📊 Generowanie Wykresów":
     if st.session_state.uploaded_files:
-        from pages.plot_page import render_plot_page
+        from views.plot_page import render_plot_page
         render_plot_page()
     else:
         st.warning("Najpierw załaduj przynajmniej jeden plik CSV.")
 
 elif choice == "📋 Generowanie Raportu":
     if st.session_state.uploaded_files:
-        from pages.report_page import render_report_page
+        from views.report_page import render_report_page
         render_report_page()
     else:
         st.warning("Najpierw załaduj przynajmniej jeden plik CSV.")
 
 elif choice == "🤖 Nauka Maszynowa":
     if st.session_state.uploaded_files:
-        from pages.ml_page import render_ml_page
+        from views.ml_page import render_ml_page
         render_ml_page()
     else:
         st.warning("Najpierw załaduj przynajmniej jeden plik CSV.")
 
 elif choice == "🖥️ Pisanie Kodów":
-    from pages.code_page import render_code_editor_page
+    from views.code_page import render_code_editor_page
     render_code_editor_page()

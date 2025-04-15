@@ -77,6 +77,7 @@ def analyze_date_columns(df, results, date_column, check_levels=['months', 'days
     df[date_column] = pd.to_datetime(df[date_column], errors='coerce')
     print("Typ kolumny:", df[date_column].dtype)
     print("Czy kolumna istnieje?", date_column in df.columns)
+    print(check_levels)
     results.append(f"\n### Analiza kolumny datowej: {date_column} ###")    
     if date_column not in df.columns or not np.issubdtype(df[date_column].dtype, np.datetime64):
         results.append(f"- {date_column}: Nie podano kolumny lub podana kolumna nie istanieje (może nie poprawny typ danych)")
