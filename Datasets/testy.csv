@@ -1,0 +1,20 @@
+Transaction_ID,User_ID,Transaction_Amount,Transaction_Type,Timestamp,Timestamp_2,Account_Balance,Device_Type,Location,Merchant_Category,IP_Address_Flag,Previous_Fraudulent_Activity,Daily_Transaction_Count,Avg_Transaction_Amount_7d,Failed_Transaction_Count_7d,Card_Type,Card_Age,Transaction_Distance,Authentication_Method,Risk_Score,Is_Weekend,Fraud_Label
+TXN_33553,USER_1834,39.79,POS,2023-08-14 19:30:00,2023-08-14 19:30:00,93213.17,Laptop,Sydney,Travel,0,0,7,437.63,3,Amex,65,883.17,Biometric,0.8494,0,0
+TXN_9427,USER_7875,1.19,Bank Transfer,2023-06-07 04:01:00,2023-08-14 19:31:00,75725.25,Mobile,New York,Clothing,0,0,13,478.76,4,Mastercard,186,2203.36,Password,0.0959,0,1
+TXN_199,USER_2734,28.96,Online,2023-06-20 15:25:00,2023-08-14 19:32:00,1588.96,Tablet,Mumbai,Restaurants,0,0,14,50.01,4,Visa,226,1909.29,Biometric,0.84,0,1
+TXN_12447,USER_2617,254.32,ATM Withdrawal,2023-12-07 00:31:00,2023-08-14 19:33:00,76807.2,Tablet,New York,Clothing,0,0,8,182.48,4,Visa,76,1311.86,OTP,0.7935,0,1
+TXN_39489,USER_2014,31.28,POS,2023-11-11 23:44:00,2023-08-14 19:34:00,92354.66,Mobile,Mumbai,Electronics,0,1,14,328.69,4,Mastercard,140,966.98,Password,0.3819,1,1
+TXN_42724,USER_6852,168.55,Online,2023-06-05 20:55:00,2023-08-14 19:35:00,33236.94,Laptop,Tokyo,Restaurants,0,0,3,226.85,2,Discover,51,1725.64,OTP,0.0504,0,0
+TXN_10822,USER_5052,3.79,POS,2023-11-07 01:18:00,2023-08-14 19:36:00,86834.18,Tablet,London,Restaurants,0,0,2,298.35,2,Mastercard,168,3757.19,Password,0.0875,0,0
+TXN_49498,USER_4660,7.08,ATM Withdrawal,2023-02-25 03:43:00,2023-08-14 19:37:00,45826.27,Tablet,London,Restaurants,0,0,3,164.38,4,Discover,182,1764.66,Biometric,0.5326,0,1
+TXN_4144,USER_1584,34.25,ATM Withdrawal,2023-03-09 22:51:00,2023-08-14 19:38:00,94392.35,Tablet,Tokyo,Clothing,0,0,7,90.02,3,Visa,24,550.38,Biometric,0.1347,1,0
+TXN_36958,USER_9498,16.24,POS,2023-09-20 17:27:00,,91859.97,Mobile,Mumbai,Travel,0,0,6,474.42,1,Mastercard,124,720.91,PIN,0.3394,0,0
+TXN_43106,USER_2848,367.5,POS,2023-04-11 07:11:00,,14640.09,Laptop,Mumbai,Electronics,0,0,4,397.58,0,Amex,136,292.36,PIN,0.643,0,0
+TXN_38695,USER_6860,50.44,ATM Withdrawal,2023-08-06 08:22:00,,19962.22,Laptop,London,Travel,0,0,14,278.55,1,Discover,131,3993.62,PIN,0.4582,0,0
+TXN_6188,USER_6728,55.5,ATM Withdrawal,2023-07-20 03:10:00,,89664.63,Laptop,London,Groceries,0,0,6,483.58,4,Discover,192,3721.54,OTP,0.5837,0,1
+TXN_1414,USER_6655,54.09,Bank Transfer,2023-11-17 20:13:00,,51287.15,Mobile,Sydney,Electronics,0,0,11,152.63,2,Amex,91,1061.27,PIN,0.1454,0,0
+TXN_18471,USER_7651,9.66,Online,2023-06-20 17:15:00,,12420.17,Tablet,New York,Electronics,0,0,6,173.97,0,Mastercard,5,762.21,OTP,0.0793,1,0
+TXN_29282,USER_1248,64.78,POS,2023-07-03 09:20:00,,23487.76,Laptop,Mumbai,Restaurants,0,0,1,17.85,2,Amex,3,3378.44,Password,0.2245,0,0
+TXN_15177,USER_9349,37.11,POS,2023-12-21 08:48:00,,92977.91,Tablet,Sydney,Electronics,0,0,12,457.42,3,Visa,135,395.36,Biometric,0.1136,1,0
+TXN_34304,USER_9413,1.58,Bank Transfer,2023-04-08 09:13:00,,63076.36,Laptop,New York,Clothing,0,0,13,309.49,1,Amex,47,2074.77,Biometric,0.3433,0,0
+TXN_12609,USER_5861,178.56,POS,2023-08-16 10:01:00,,62359.52,Tablet,Tokyo,Groceries,0,0,4,491.21,4,Visa,29,2159.31,Password,0.444,1,1

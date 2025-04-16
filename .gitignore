@@ -3,6 +3,5 @@ __pycache__/
 *.pyo
 *.log
 *.sqlite3
-*.csv
 .env
 /.streamlit/
