@@ -5,8 +5,19 @@ from streamlit_ace import st_ace
 import io
 import contextlib
 
+def register_custom_dataframe(df, name="custom_df_1"):
+    """Zarejestruj nowy DataFrame w aplikacji."""
+    st.session_state.uploaded_files[name] = df
+    st.success(f"Dodano nowy DataFrame jako '{name}'!")
+
 def render_code_editor_page():
-    st.title("🖥️ Edytor kodu Python")
+    st.markdown("""
+### 🖥️ Edytor kodu Python
+<small style='color:gray'>
+ℹ️ Możesz utworzyć zmienną <code>new_df</code> i przypisać do niej dane. 
+Jeśli chcesz dodać je do aplikacji, użyj funkcji <code>register_custom_dataframe(new_df,name="new_df_name")</code>.
+</small>
+""", unsafe_allow_html=True)
     st.write("Wprowadź kod Python w edytorze poniżej. Możesz korzystać z załadowanych danych (zmienna `df`) oraz bibliotek takich jak pandas, matplotlib, czy seaborn.")
 
     # Sidebar: lista załadowanych plików
@@ -81,7 +92,8 @@ draw_tree(10)
         "st": st,
         "pd": pd,
         "plt": plt,
-        "df": st.session_state.uploaded_files[selected_file] if selected_file else pd.DataFrame()
+        "df": st.session_state.uploaded_files[selected_file] if selected_file else pd.DataFrame(),
+        "register_custom_dataframe": register_custom_dataframe
     }
 
     # Uruchamianie kodu użytkownika
@@ -94,6 +106,18 @@ draw_tree(10)
             except Exception as e:
                 st.error(f"Błąd wykonania kodu: {e}")
             output = buf.getvalue()
+        if "new_df" in execution_context and isinstance(execution_context["new_df"], pd.DataFrame):
+            new_df = execution_context["new_df"]
+            
+            # Znajdź unikalną nazwę dla nowego df
+            counter = 1
+            while f"custom_df_{counter}" in st.session_state.uploaded_files:
+                counter += 1
+            new_name = f"custom_df_{counter}"
 
+            
+            st.session_state.uploaded_files[new_name] = new_df
+            
+            st.dataframe(new_df.head())
         if output.strip():
             st.code(output)

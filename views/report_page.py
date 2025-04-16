@@ -22,6 +22,10 @@ def save_report_as_pdf(results):
     # Dodanie czcionki wspierającej UTF-8 (np. DejaVuSans)
     font_path = os.path.join(os.path.dirname(__file__), "..","fonts", "DejaVuSans.ttf")  # Upewnij się, że masz ten plik w folderze "fonts/"
     font_path = os.path.abspath(font_path)
+    print("Font path:", font_path)
+    if not os.path.exists(font_path):
+        st.error(f"Nie znaleziono czcionki pod: {font_path}")
+        return
     pdf.add_font("DejaVu", "", font_path, uni=True)
     pdf.set_font("DejaVu", size=12)
 
@@ -105,6 +109,7 @@ def render_report_page():
             
             # Eksport do PDF
             pdf_path = save_report_as_pdf(results)
+            
             with open(pdf_path, "rb") as f:
                 st.download_button("⬇️ Pobierz jako PDF", f.read(), file_name="raport.pdf")
 
